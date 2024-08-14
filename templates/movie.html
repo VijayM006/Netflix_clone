@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ movie['title'] }}</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+
+    <style>
+        .headline{
+            font-size: 2em;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom:20px ;
+            text-align: center;
+            color: thistle;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="netflixLogo">
+          <a id="logo" href="#home"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo Image"></a>
+        </div>      
+        <nav class="main-nav">                
+          <a href="{{url_for('home')}}">Back</a>
+          <a href="#tvShows">TV Shows</a>
+          <a href="#movies">Movies</a>
+          <a href="#originals">Originals</a>
+          <a href="#">Recently Added</a>     
+        </nav>
+        <nav class="sub-nav">
+          <a href="#"><i class="fas fa-search sub-nav-logo"></i></a>
+          <a href="#"><i class="fas fa-bell sub-nav-logo"></i></a>
+          <a href="#">Account</a>        
+        </nav>      
+      </header>
+    <h1>{{ movie['title'] }}</h1>
+    {% if trailer_id %}
+        <iframe width="80%" height="500" src="https://www.youtube.com/embed/{{ trailer_id }}" frameborder="0" allowfullscreen></iframe>
+    {% else %}
+        <p>No trailer found.</p>
+    {% endif %}
+    <p class="headline">{{ movie['overview'] }}</p>
+    <p><a href="">Back to Home</a></p>
+</body>
+</html>

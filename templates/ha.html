@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Netflix Clone</title>
+</head>
+<body>
+    <h1>Popular Movies</h1>
+    <div>
+        {% for movie in movies %}
+            <div>
+                <h2><a href="{{ url_for('movie', movie_id=movie['id'])}}">{{ movie['title'] }}</a></h2>
+                <p>{{ movie['overview'] }}</p>
+                <img src="https://image.tmdb.org/t/p/w500{{ movie['poster_path'] }}" alt="{{ movie['title'] }} poster">
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
