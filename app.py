@@ -91,5 +91,5 @@ def movie(movie_id):
     return render_template('movie.html', movie=movie_data, trailer_id=trailer_id)
 
 if __name__ == "__main__":
-    vj.run(debug=True, port=5002)
-
+    port = int(os.getenv('PORT', 5000))
+    vj.run(debug=True, host='0.0.0.0', port=port)
